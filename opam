@@ -21,12 +21,12 @@ authors: ["https://github.com/dboulytchev" "https://github.com/Kakadu"]
 homepage: "https://github.com/JetBrains-Research/GT"
 bug-reports: "https://github.com/JetBrains-Research/GT/issues"
 depends: [
-  "ocaml"
-  "ocamlfind"  {build}
-  "ocamlbuild" {build}
-  "ocamlgraph" {build}
+  "ocaml"      {>= "4.07.0" }
+  "ocamlfind"  { build }
+  "ocamlbuild" { build }
+  "ocamlgraph" { build }
   "ppxlib"     {>= "0.9.0" }
-  "camlp5"
+  "camlp5"     {<= "7.10"  }
   "ppx_import" {with-test}
 ]
 build: [
