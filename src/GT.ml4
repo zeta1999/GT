@@ -121,11 +121,11 @@ let gcata_list tr inh s = match s with
 class ['a, 'self] html_list_t fa fself =
   object
     inherit [unit, 'a, HTML.viewer, unit, 'self, HTML.viewer] @list
-    method c_Nil  _ _      = View.empty
+    method c_Nil  _ _      = View.string "[]"
     method c_Cons _ _ x xs =
-      HTML.ul @@ HTML.seq (
-        [ HTML.string "list" ] @ List.map (fun x -> HTML.li @@ fa () x) (x::xs)
-        )
+      HTML.seq (
+         [HTML.string "list"; HTML.ul @@ HTML.seq (List.map (fun x -> HTML.li @@ fa () x) (x::xs))]
+      )
 (*      View.concat (fa x) (match xs with [] -> View.empty | xs -> HTML.li (fself () xs)) *)
   end
 
